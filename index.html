@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures</title>
+    <style>
+        #box1 {
+            background-color: aquamarine;
+            color: purple;
+            position: relative;
+            width: 100vw - 100px;
+            margin: 0 0 20px;
+        }
+        #box2 {
+            background-color: green;
+            color: yellowgreen;
+            position: relative;
+            width: 100vw - 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        First Box
+    </div>
+    <div id="box2">
+        Second box
+    </div>
+    <script>
+        function animateIt(eleId) {
+            var elem = document.getElementById(eleId);
+            var tick = 0;
+            var timer = setInterval(function(){
+                if(tick < 100) {
+                    elem.style.left = elem.style.top = tick + 'px';
+                    tick++;
+                    console.log(tick);
+                } else {
+                    tick = 0;
+                    //clearInterval(timer);
+                }
+            }, 100);
+        }
+        animateIt("box1");
+        animateIt("box2");
+    </script>
+</body>
+</html>
